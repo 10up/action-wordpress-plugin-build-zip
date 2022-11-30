@@ -84,6 +84,6 @@ fi
 
 echo "➤ Generating zip file..."
 cd "$SVN_DIR/trunk" || exit
-zip -r "${GITHUB_WORKSPACE}/${SLUG}.zip" .
-echo "zip-path=${GITHUB_WORKSPACE}/${SLUG}.zip" >> "${GITHUB_OUTPUT}"
+zip -r "${GITHUB_WORKSPACE}/${GITHUB_REPOSITORY#*/}.zip" .
+echo "zip-path=${GITHUB_WORKSPACE}/${GITHUB_REPOSITORY#*/}.zip" >> "${GITHUB_OUTPUT}"
 echo "✓ Zip file generated!"
