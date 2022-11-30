@@ -1,0 +1,29 @@
+name: 'WordPress Plugin Build Zip'
+description: 'Build a release zip of a WordPress Plugin'
+author: '10up'
+branding:
+  icon: 'archive'
+  color: 'blue'
+inputs:
+  retention-days:
+    description: 'How many days to keep the zip archive'
+    default: 5
+runs:
+  using: 'composite'
+  steps:
+    - name: Generate zip archive
+      id: archive
+      run: ${{ github.action_path }}/build-zip.sh
+      shell: bash
+
+    - name: Unzip the archive (prevents double zip problem)
+      id: unzip
+      run: unzip ${{ github.event.repository.name }}.zip -d zipfile
+
+    - name: Upload the archive as an artifact
+      id: upload
+      use: actions/upload-artifact@v3
+      with:
+        name: ${{ github.event.repository.name }}
+        path: zipfile
+        retention-days: ${{ inputs.retention-days }}
