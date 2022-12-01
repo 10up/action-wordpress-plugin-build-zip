@@ -6,7 +6,7 @@
 
 This Action will build a zip archive of your WordPress plugin and attach that archive as an artifact, allowing you to download and test prior to deploying any changes to WordPress.org. This gives you the peace of mind knowing you've tested exactly what will be deployed.
 
-Recommended to be used in conjunction with our [WordPress.org Plugin Deploy Action](https://github.com/10up/action-wordpress-plugin-deploy). An ideal workflow is to run this Action first and test the zip archive it provides. Once testing passes, then run our deploy Action to push changes to WordPress.org.
+Recommended to be used in conjunction with our [WordPress.org Plugin Deploy Action](https://github.com/10up/action-wordpress-plugin-deploy) as both Actions create the archive in the same way. An ideal workflow is to run this Action first and test the zip archive it provides. Once testing passes, then run our deploy Action to push changes to WordPress.org.
 
 **Note**: while this Action will checkout your plugin code from the WordPress.org SVN repo it does not commit any code to that repo.
 
