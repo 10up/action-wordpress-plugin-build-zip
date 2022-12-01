@@ -23,7 +23,7 @@ runs:
 
     - name: Upload the archive as an artifact
       id: upload
-      use: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3
       with:
         name: ${{ github.event.repository.name }}
         path: zipfile
