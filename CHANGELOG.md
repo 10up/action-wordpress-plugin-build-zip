@@ -4,9 +4,9 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
-## [1.0.0] - 2022-12-XX
+## [1.0.0] - 2022-12-01
 
 - Initial release.
 
 [Unreleased]: https://github.com/10up/action-wordpress-plugin-build-zip/compare/stable...develop
-[1.0.0]: https://github.com/10up/action-wordpress-plugin-build-zip/releases/tag/1.0
+[1.0.0]: https://github.com/10up/action-wordpress-plugin-build-zip/releases/tag/1.0.0
