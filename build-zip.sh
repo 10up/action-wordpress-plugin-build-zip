@@ -87,7 +87,7 @@ if [[ "$BUILD_DIR" = false ]]; then
 
 		# Ensure git archive will pick up any changed files in the directory.
 		# See https://github.com/10up/action-wordpress-plugin-deploy/pull/130
-		test $(git ls-files --deleted) && git rm $(git ls-files --deleted)
+		test "$(git ls-files --deleted)" && git rm "$(git ls-files --deleted)"
 		if [ -n "$(git status --porcelain --untracked-files=all)" ]; then
 			git add .
 			git commit -m "Include build step changes"
