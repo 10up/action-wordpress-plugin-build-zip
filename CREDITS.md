@@ -10,7 +10,7 @@ The following individuals are responsible for curating the list of issues, respo
 
 Thank you to all the people who have already contributed to this repository via bug reports, code, design, ideas, project management, translation, testing, etc.
 
-[Darin Kotter (@dkotter)](https://github.com/dkotter), [Jeffrey Paul (@jeffpaul)](https://github.com/jeffpaul), [Joost de Valk (@jdevalk)](https://github.com/jdevalk).
+[Darin Kotter (@dkotter)](https://github.com/dkotter), [Jeffrey Paul (@jeffpaul)](https://github.com/jeffpaul), [Joost de Valk (@jdevalk)](https://github.com/jdevalk), [Dharmesh Patel (@iamdharmesh)](https://github.com/iamdharmesh), [Kirtan Gajjar (@kirtangajjar)](https://github.com/kirtangajjar), [Faisal Alvi (@faisal-alvi)](https://github.com/faisal-alvi).
 
 ## Libraries
 

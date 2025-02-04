@@ -77,7 +77,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Build plugin # Remove or modify this step as needed
       run: |
@@ -105,7 +105,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Build plugin # Remove or modify this step as needed
       run: |
@@ -133,6 +133,4 @@ Our GitHub Actions are available for use and remix under the MIT license.
 
 ## Like what you see?
 
-<p align="center">
-<a href="http://10up.com/contact/"><img src="https://10up.com/uploads/2016/10/10up-Github-Banner.png" width="850"></a>
-</p>
+[![Work with 10up](https://10up.com/uploads/2016/10/10up-Github-Banner.png)](http://10up.com/contact/)

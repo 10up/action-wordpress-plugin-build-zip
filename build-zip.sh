@@ -6,6 +6,32 @@
 # it does not exit with a 0, and we only care about the final exit.
 set -eo
 
+# Function to check if a command exists
+command_exists() {
+	command -v "$1" >/dev/null 2>&1
+}
+
+# Check if SVN is installed
+if command_exists svn; then
+	echo "SVN is already installed."
+else
+	echo "SVN is not installed. Installing SVN..."
+
+	# Update the package list
+	sudo apt-get update -y
+
+	# Install SVN
+	sudo apt-get install -y subversion
+
+	# Verify installation
+	if command_exists svn; then
+		echo "SVN was successfully installed."
+	else
+		echo "Failed to install SVN. Please check your system configuration."
+		exit 1
+	fi
+fi
+
 # Allow some ENV variables to be customized
 if [[ -z "$SLUG" ]]; then
 	SLUG=${GITHUB_REPOSITORY#*/}
@@ -51,8 +77,21 @@ if [[ "$BUILD_DIR" = false ]]; then
 		TMP_DIR="${HOME}/archivetmp"
 		mkdir "$TMP_DIR"
 
+		# Workaround for: detected dubious ownership in repository at '/github/workspace' issue.
+		# See: https://github.com/10up/action-wordpress-plugin-deploy/issues/116
+		# Mark github workspace as safe directory.
+		git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
 		git config --global user.email "10upbot+github@10up.com"
 		git config --global user.name "10upbot on GitHub"
+
+		# Ensure git archive will pick up any changed files in the directory.
+		# See https://github.com/10up/action-wordpress-plugin-deploy/pull/130
+		test "$(git ls-files --deleted)" && git rm "$(git ls-files --deleted)"
+		if [ -n "$(git status --porcelain --untracked-files=all)" ]; then
+			git add .
+			git commit -m "Include build step changes"
+		fi
 
 		# If there's no .gitattributes file, write a default one into place
 		if [[ ! -e "$GITHUB_WORKSPACE/.gitattributes" ]]; then
