@@ -2,6 +2,11 @@ name: Release Pull Request Automation
 
 on:
   create:
+
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   release-pull-request-automation:
     if: ${{ github.event.ref_type == 'branch' && contains( github.ref, 'release/' ) }}
